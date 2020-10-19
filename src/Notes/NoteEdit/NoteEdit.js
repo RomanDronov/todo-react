@@ -3,7 +3,7 @@ export default class NoteEdit extends React.Component{
     constructor(props){
         super(props);
         this.buttonClicked=this.buttonClicked.bind(this);
-        this.url='https://edd910f37d90.ngrok.io';
+        this.url=this.props.host;
         this.getNoteText=this.getNoteText.bind(this);
         this.updateList=this.props.updateList;
         this.state={
@@ -15,11 +15,13 @@ export default class NoteEdit extends React.Component{
         this.setState({value:event.target.value});
     }
     buttonClicked(e){
+        console.log("edit clicked");
         e.preventDefault();
         this.addNoteReq();
 
     }
     addNoteReq(){
+        alert(this.url);
         fetch(this.url+'/api/todo/',{
             method:'POST',
             headers: {
@@ -32,8 +34,8 @@ export default class NoteEdit extends React.Component{
     }
     render(){
         return(<div>
-            <input type="text" value={this.state.value} onChange={this.getNoteText}/>
-            <button onClick={this.buttonClicked}>Save note</button>
+            <input type="text" value={this.state.value} id="NoteEdit" onChange={this.getNoteText}/>
+            <button onClick={this.buttonClicked} id='SaveNote'>Save note</button>
         </div>)
     }
 }

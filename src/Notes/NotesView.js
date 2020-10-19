@@ -4,7 +4,7 @@ import NoteIcon from './NoteIcon/NoteIcon';
 export default class NotesView extends React.Component {
     constructor(props) {
         super(props);
-        this.host = 'https://edd910f37d90.ngrok.io';
+        this.host = 'https://d69b6f2a6529.ngrok.io';
         this.state =
         {
             isEmpty: false,
@@ -53,12 +53,12 @@ export default class NotesView extends React.Component {
         let body = null;
         if (!this.state.isLoading) {
             if (this.state.isEmpty) {
-                body = <NoteAdd />;
+                body = <NoteAdd updateList={this.requestNotes} host={this.host}/>;
             }
             if (!this.state.isEmpty) {
                 body = [];
                 body.push(this.state.data);
-                body.push(<NoteAdd updateList={this.requestNotes}/>);
+                body.push(<NoteAdd updateList={this.requestNotes} host={this.host}/>);
             }
         }
         return (
