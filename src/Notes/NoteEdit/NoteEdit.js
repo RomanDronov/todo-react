@@ -21,7 +21,6 @@ export default class NoteEdit extends React.Component{
 
     }
     addNoteReq(){
-        alert(this.url);
         fetch(this.url+'/api/todo/',{
             method:'POST',
             headers: {
