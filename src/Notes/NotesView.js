@@ -1,10 +1,11 @@
 import React from 'react';
 import NoteAdd from './NoteAdd/NoteAdd';
 import NoteIcon from './NoteIcon/NoteIcon';
+import './NotesView.css';
 export default class NotesView extends React.Component {
     constructor(props) {
         super(props);
-        this.host = 'https://d69b6f2a6529.ngrok.io';
+        this.host = 'https://af5acb593228.ngrok.io';
         this.state =
         {
             isEmpty: false,
@@ -12,7 +13,22 @@ export default class NotesView extends React.Component {
             data: null
         };
         this.requestNotes=this.requestNotes.bind(this);
+        this.colorMap=this.setColors();
 
+    }
+    setColors(){
+        let colorMap=new Map();
+        colorMap.set('green','#B2FAB4');
+        colorMap.set('red','#FF796E');
+        colorMap.set('blue','#A8E2FF');
+        colorMap.set('grey','#CFCFCF');
+        colorMap.set('yellow','#FFC947');
+        colorMap.set('white','#FFFFFF');
+        colorMap.set('cyan','#9EFFFF');
+        colorMap.set('purple','#EE98FB');
+        colorMap.set('ocean','#82E9DE');
+        colorMap.set('orange','#FFBB93');
+        return colorMap;
     }
     componentDidMount() {
        this.requestNotes();
@@ -62,7 +78,7 @@ export default class NotesView extends React.Component {
             }
         }
         return (
-            <div>
+            <div className="CardView">
                 {body}
             </div>
         );

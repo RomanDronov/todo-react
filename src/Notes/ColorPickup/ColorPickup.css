@@ -1,0 +1,23 @@
+.ColorPickup .Color{
+    border-radius: 50%;
+    background: #B2FAB4;
+    float:left;
+}
+.ColorPickup{
+    margin:10px;
+    box-sizing: border-box;
+    border:1px solid black;
+    min-width: 100px;
+    min-height: 10px;
+    display: inline-block;
+}
+@media only screen and (min-width: 1200px) {
+    .ColorPickup .Color{
+        width: 30px;
+        height: 30px;
+        margin:5px;
+    }
+    .ColorPickup{
+        width: 202px;
+    }
+}

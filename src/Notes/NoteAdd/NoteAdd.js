@@ -1,16 +1,23 @@
 import React from 'react';
 import NoteEdit from '../NoteEdit/NoteEdit';
 import NoteEditTab from '../NoteEditTab/NoteEditTab';
+import ColorPickupTool from '../ColorPickup/ColorPickupTool';
 export default class NoteAdd extends React.Component{
     constructor(props){
         super(props);
         this.buttonClicked=this.buttonClicked.bind(this);
         this.expandEditTab=this.expandEditTab.bind(this);
+        this.setEditColor=this.setEditColor.bind(this);
         this.host=this.props.host;
         this.state={
             isEditOpen:false,
             isExpandEdit:false,
+            color:'#FFFFFF'
         }
+        this.closeEdit=this.closeEdit.bind(this);
+    }
+    closeEdit(){
+        this.setState({isEditOpen:false});
     }
     buttonClicked(e){
         e.preventDefault();
@@ -23,6 +30,11 @@ export default class NoteAdd extends React.Component{
     externalTabEditValue(e){
         console.log("externalTab"+e.target.value);
         this.setState({value:e.target.value});
+    }
+    setEditColor(color){
+        this.setState({
+            color:color
+        });
     }
     saveNoteExternalTab(e){
             e.preventDefault();
@@ -39,7 +51,9 @@ export default class NoteAdd extends React.Component{
     render(){
         let editView=null;
         if(this.state.isEditOpen){
-            editView=<div><NoteEdit updateList={this.props.updateList} host={this.props.host}/>
+            editView=<div>
+                <ColorPickupTool changeColor={this.setEditColor}/>
+                <NoteEdit updateList={this.props.updateList} closeEdit={this.closeEdit}host={this.props.host} color={this.state.color}/>
             <button onClick={this.expandEditTab}>Expand editor</button>
             </div>;
         }

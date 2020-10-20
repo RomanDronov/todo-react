@@ -1,0 +1,112 @@
+<style>
+.CardView{
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+.NoteCard{
+    min-width:200px;
+    min-height: 200px;
+    background: rgba(178, 250, 180, 0.56);
+    border-radius: 20px;
+    font-size: 30px;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+}
+.NoteCard .Note{
+    color:#333333;
+    font-weight: 600;
+    
+}
+.NoteCard .Date{
+    position: absolute;
+    color: #404740;
+    font-weight: normal;
+}
+.NoteCard textarea{
+    width: 100%;
+    height: 100%;
+    color:#333333;
+    font-weight: 600;
+    outline:none;
+    border:none;
+    resize: none;
+    background:transparent;
+}
+.ColorPickup .Color{
+    border-radius: 50%;
+    background: #B2FAB4;
+    float:left;
+    transition: background 2s ease-out;
+}
+.ColorPickup{
+    margin:10px;
+    box-sizing: border-box;
+    border:1px solid black;
+    min-width: 100px;
+    min-height: 10px;
+    display: inline-block;
+}
+.ColorPickup .Color:hover{
+    background:black;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@media only screen and (min-width: 1200px) {
+    .NoteCard{
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        margin: 10px;
+    }
+    .NoteCard .Note{
+        font-size:1em;
+    }
+    .NoteCard .Date{
+        left: 20px;
+        bottom: 20px;
+       font-size: 0.5em;
+    }
+    .NoteCard textarea{
+        font-size: 1em;
+    }
+    .ColorPickup .Color{
+        width: 30px;
+        height: 30px;
+        margin:5px;
+    }
+    .ColorPickup{
+        width: 202px;
+    }
+}
+</style>
+<body>
+    <div class="CardView">
+    <div class="NoteCard">
+        <div class="Note">Create card in css</div>
+        <div class="Date">November 11, 2020</div>
+    </div>
+    <div class="NoteCard">
+        <div class="Note">Create card in css</div>
+        <div class="Date">November 11, 2020</div>
+    </div>
+    <div class="NoteCard">
+        <div class="Note">Create card in css</div>
+        <div class="Date">November 11, 2020</div>
+    </div>
+    </div>
+    <div class="NoteCard"><textarea></textarea></div>
+    <div class="ColorPickup">
+        <div class="Color"></div>
+        <div class="Color"></div>
+        <div class="Color"></div>
+        <div class="Color"></div>
+        <div class="Color"></div>
+        <div class="Color"></div>
+        <div class="Color"></div>
+        <div class="Color"></div>
+        <div class="Color"></div>
+        <div class="Color"></div>
+    </div>
+</body>
