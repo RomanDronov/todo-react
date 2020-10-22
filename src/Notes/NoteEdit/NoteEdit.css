@@ -7,7 +7,6 @@
     box-sizing: border-box;
   
     position: relative;
-    float: left;
     transition: background 1s ease-out;
 }
 .NoteCard textarea{
@@ -26,6 +25,26 @@
         height: 200px;
         padding: 20px;
         margin: 10px;
+        float:left;
+    }
+    .NoteCard textarea{
+        font-size: 1em;
+    }
+}
+@media only screen and (max-width: 768px){
+    .NoteCard{
+        width: 90%;
+        height: 200px;
+        padding: 20px;
+        margin: 10px auto;
+    }
+    .NoteCard .Note{
+        font-size:1em;
+    }
+    .NoteCard .Date{
+        left: 20px;
+        bottom: 20px;
+       font-size: 0.5em;
     }
     .NoteCard textarea{
         font-size: 1em;

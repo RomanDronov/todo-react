@@ -21,3 +21,13 @@
         width: 202px;
     }
 }
+@media only screen and (max-width: 768px){
+    .ColorPickup .Color{
+        width: 30px;
+        height: 30px;
+        margin:5px;
+    }
+    .ColorPickup{
+        width: 202px;
+    }
+}

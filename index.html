@@ -4,6 +4,7 @@
     width: 100%;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    border:1px solid black;
 }
 .NoteCard{
     min-width:200px;
@@ -13,7 +14,6 @@
     font-size: 30px;
     box-sizing: border-box;
     position: relative;
-    float: left;
 }
 .NoteCard .Note{
     color:#333333;
@@ -59,6 +59,34 @@
         height: 200px;
         padding: 20px;
         margin: 10px;
+        float: left;
+    }
+    .NoteCard .Note{
+        font-size:1em;
+    }
+    .NoteCard .Date{
+        left: 20px;
+        bottom: 20px;
+       font-size: 0.5em;
+    }
+    .NoteCard textarea{
+        font-size: 1em;
+    }
+    .ColorPickup .Color{
+        width: 30px;
+        height: 30px;
+        margin:5px;
+    }
+    .ColorPickup{
+        width: 202px;
+    }
+}
+@media only screen and (max-width: 768px){
+    .NoteCard{
+        width: 90%;
+        height: 200px;
+        padding: 20px;
+        margin: 10px auto;
     }
     .NoteCard .Note{
         font-size:1em;
