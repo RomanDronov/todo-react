@@ -5,7 +5,7 @@ import NotesView from './Notes/NotesView';
 
 function App() {
   return (
-    <NotesView/>
+    <NotesView />
   );
 }
 

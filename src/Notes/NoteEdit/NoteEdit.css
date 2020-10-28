@@ -1,52 +1,54 @@
-.NoteCard{
-    min-width:200px;
+.NoteCard {
+    min-width: 200px;
     min-height: 200px;
     background: rgba(178, 250, 180, 0.56);
     border-radius: 20px;
     font-size: 30px;
     box-sizing: border-box;
-  
     position: relative;
     transition: background 1s ease-out;
 }
-.NoteCard textarea{
+
+.NoteCard textarea {
     width: 100%;
     height: 100%;
-    color:#333333;
+    color: #333333;
     font-weight: 600;
-    outline:none;
-    border:none;
+    outline: none;
+    border: none;
     resize: none;
-    background:transparent;
+    background: transparent;
 }
+
 @media only screen and (min-width: 1200px) {
-    .NoteCard{
+    .NoteCard {
         width: 200px;
         height: 200px;
         padding: 20px;
         margin: 10px;
-        float:left;
+        float: left;
     }
-    .NoteCard textarea{
+    .NoteCard textarea {
         font-size: 1em;
     }
 }
-@media only screen and (max-width: 768px){
-    .NoteCard{
+
+@media only screen and (max-width: 768px) {
+    .NoteCard {
         width: 90%;
         height: 200px;
         padding: 20px;
         margin: 10px auto;
     }
-    .NoteCard .Note{
-        font-size:1em;
+    .NoteCard .Note {
+        font-size: 1em;
     }
-    .NoteCard .Date{
+    .NoteCard .Date {
         left: 20px;
         bottom: 20px;
-       font-size: 0.5em;
+        font-size: 0.5em;
     }
-    .NoteCard textarea{
+    .NoteCard textarea {
         font-size: 1em;
     }
 }

@@ -12,34 +12,34 @@ export default class NotesView extends React.Component {
             isLoading: true,
             data: null
         };
-        this.requestNotes=this.requestNotes.bind(this);
-        this.colorMap=this.setColors();
+        this.requestNotes = this.requestNotes.bind(this);
+        this.colorMap = this.setColors();
 
     }
-    setColors(){
-        let colorMap=new Map();
-        colorMap.set('GREEN','#B2FAB4');
-        colorMap.set('RED','#FF796E');
-        colorMap.set('BLUE','#A8E2FF');
-        colorMap.set('GREY','#CFCFCF');
-        colorMap.set('YELLOW','#FFC947');
-        colorMap.set('WHITE','#FFFFFF');
-        colorMap.set('CYAN','#9EFFFF');
-        colorMap.set('PURPLE','#EE98FB');
-        colorMap.set('OCEAN','#82E9DE');
-        colorMap.set('ORANGE','#FFBB93');
+    setColors() {
+        let colorMap = new Map();
+        colorMap.set('GREEN', '#B2FAB4');
+        colorMap.set('RED', '#FF796E');
+        colorMap.set('BLUE', '#A8E2FF');
+        colorMap.set('GREY', '#CFCFCF');
+        colorMap.set('YELLOW', '#FFC947');
+        colorMap.set('WHITE', '#FFFFFF');
+        colorMap.set('CYAN', '#9EFFFF');
+        colorMap.set('PURPLE', '#EE98FB');
+        colorMap.set('OCEAN', '#82E9DE');
+        colorMap.set('ORANGE', '#FFBB93');
         return colorMap;
     }
     componentDidMount() {
-       this.requestNotes();
+        this.requestNotes();
     }
-    requestNotes(){
-        console.log('requestNotes'+this.host);
-        if(this.props.demo){
-            let notesMockup={
+    requestNotes() {
+        console.log('requestNotes' + this.host);
+        if (this.props.demo) {
+            let notesMockup = {
                 value: [
                     {
-                    id: "4028812175511756017551181dac0000",
+                        id: "4028812175511756017551181dac0000",
                         description: "Test Note1",
                         created: "2020-10-22T19:15:36.364659",
                         modified: "2020-10-22T19:15:36.364682",
@@ -64,7 +64,7 @@ export default class NotesView extends React.Component {
                     },
                     {
                         id: "4028812175511756017551182e520003",
-                        description: "Note via POST",
+                        description: "Lorem Ipsum is simply dummy text of the printing and typesetting.",
                         created: "2020-10-22T19:15:40.626722",
                         modified: "2020-10-22T19:15:40.626744",
                         color: "BLUE",
@@ -79,16 +79,16 @@ export default class NotesView extends React.Component {
                         completed: false
                     }
                 ]
+            }
+            this.handleResponse(notesMockup);
         }
-       this.handleResponse(notesMockup);
-        }
-        else{
-        fetch(this.host + '/api/todo', {
-        }).then(
-            res => res.json()).then(json => this.handleResponse(json));
+        else {
+            fetch(this.host + '/api/todo', {
+            }).then(
+                res => res.json()).then(json => this.handleResponse(json));
         }
     }
-    getColorCode(color){
+    getColorCode(color) {
         return this.colorMap.get(color);
     }
     handleResponse(json) {
@@ -105,8 +105,8 @@ export default class NotesView extends React.Component {
             else if (json.value.length > 0) {
                 let notes = [];
                 for (let i = 0; i < json.value.length; i++) {
-                    let color=this.getColorCode(json.value[i].color);
-                    notes.push(<NoteIcon note={json.value[i]} color={color}/>);
+                    let color = this.getColorCode(json.value[i].color);
+                    notes.push(<NoteIcon note={json.value[i]} color={color} />);
                 }
                 console.log(notes);
                 this.setState({
@@ -123,12 +123,12 @@ export default class NotesView extends React.Component {
         let body = null;
         if (!this.state.isLoading) {
             if (this.state.isEmpty) {
-             body = <NoteAdd updateList={this.requestNotes} host={this.host} demo={this.props.demo}/>;
+                body = <NoteAdd updateList={this.requestNotes} host={this.host} demo={this.props.demo} />;
             }
             if (!this.state.isEmpty) {
                 body = [];
                 body.push(this.state.data);
-                body.push(<NoteAdd updateList={this.requestNotes} host={this.host}/>);
+                body.push(<NoteAdd updateList={this.requestNotes} host={this.host} />);
             }
         }
         return (
